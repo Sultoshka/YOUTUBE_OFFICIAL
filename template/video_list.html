@@ -1,0 +1,7 @@
+% for video in videos %}
+    <h2>{{ video.video_title }}</h2>
+    <p>{{ video.video_content }}</p>
+    <a href="{% url 'video_detail' video.pk %}">Подробнее</a>
+{% endfor %}
+<a href="{% url 'add_video' %}">Добавить видео</a>
+<a href="{% url 'register_user' %}">Регистрация</a>

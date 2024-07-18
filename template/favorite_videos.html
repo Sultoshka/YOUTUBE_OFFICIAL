@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Favorite Videos</title>
+</head>
+<body>
+    <h1>My Favorite Videos</h1>
+    <ul>
+        {% for video in videos %}
+            <li><a href="{% url 'video_detail' video.id %}">{{ video.video_title }}</a></li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'video_list' %}">Back to Video List</a>
+</body>
+</html>

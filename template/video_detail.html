@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ video.video_title }}</title>
+</head>
+<body>
+    <h1>{{ video.video_title }}</h1>
+    <p>{{ video.video_content }}</p>
+
+    {% if user.is_authenticated %}
+        {% if video in user.favorite_videos.all %}
+            <a href="{% url 'remove_favorite_video' video.id %}">Remove from Favorites</a>
+        {% else %}
+            <a href="{% url 'add_favorite_video' video.id %}">Add to Favorites</a>
+        {% endif %}
+    {% endif %}
+
+    <a href="{% url 'video_list' %}">Back to Video List</a>
+</body>
+</html>
+
+<h2>{{ video.video_title }}</h2>
+<p>{{ video.video_content }}</p>
+<h3>Комментарии</h3>
+{% for comment in comments %}
+    <p>{{ comment.comment_text }}</p>
+{% endfor %}
+<a href="{% url 'add_comment' video.pk %}">Добавить комментарий</a>
+<a href="{% url 'video_list' %}">Назад к списку видео</a>

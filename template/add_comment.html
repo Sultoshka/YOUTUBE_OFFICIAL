@@ -1,0 +1,7 @@
+<h2>Добавить комментарий</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Сохранить</button>
+</form>
+<a href="{% url 'video_detail' pk=video.pk %}">Назад к видео</a>
